@@ -6,6 +6,7 @@
 
 package com.google.builditbigger.backend;
 
+import com.example.Jokes;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
@@ -23,18 +24,15 @@ import com.google.api.server.spi.config.ApiNamespace;
         )
 )
 public class MyEndpoint {
-
     /**
      * A simple endpoint method that takes a name and says Hi back
      */
     @ApiMethod(name = "putJoke")
-    public MyBean putJoke(MyBean joke) {
-        MyBean response = new MyBean();
-       // Jokes jokes = new Jokes();
-        //String joke = jokes.getJoke();
-       // response.setData("Hi, " + joke);
-
-        return joke;
+    public MyBean putJoke() {
+        MyBean result = new MyBean();
+        Jokes jokes = new Jokes();
+        result.setJoke(jokes.getRandomJoke());
+        return result;
     }
 
 }
