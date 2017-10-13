@@ -9,7 +9,7 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 
-//Actovoty that display the Joke
+//Activity that display the Joke
 public class JokeActivity extends AppCompatActivity {
 
     @Override
