@@ -9,9 +9,7 @@ import android.view.ViewGroup;
 import com.udacity.gradle.builditbigger.R;
 
 
-/**
- * A placeholder fragment containing a simple view.
- */
+//paid flavor just load layout, no ads :)
 public class MainActivityFragment extends Fragment {
 
     public MainActivityFragment() {

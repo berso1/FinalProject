@@ -9,7 +9,7 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 
-
+//Actovoty that display the Joke
 public class JokeActivity extends AppCompatActivity {
 
     @Override
@@ -18,7 +18,7 @@ public class JokeActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String joke = intent.getStringExtra("joke");
         String flavor = intent.getStringExtra("flavor");
-
+//test flavor to show interstitialAd in free flavor or not in paid flavor
         if( flavor.equals("free")  ){
            loadAd(joke);
         }else{
@@ -43,10 +43,12 @@ public class JokeActivity extends AppCompatActivity {
             @Override
             public void onAdFailedToLoad(int errorCode) {
                 super.onAdFailedToLoad(errorCode);
+                //if load fails show joke
                 loadJoke(joke);
             }
             @Override
             public void onAdClosed() {
+                //show joke whe ad is closed
                 loadJoke(joke);
             }
         });

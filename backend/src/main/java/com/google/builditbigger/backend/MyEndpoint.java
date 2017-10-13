@@ -19,8 +19,7 @@ import com.google.api.server.spi.config.ApiNamespace;
         version = "v1",
         namespace = @ApiNamespace(
                 ownerDomain = "backend.builditbigger.google.com",
-                ownerName = "backend.builditbigger.google.com",
-                packagePath = ""
+                ownerName = "backend.builditbigger.google.com"
         )
 )
 public class MyEndpoint {

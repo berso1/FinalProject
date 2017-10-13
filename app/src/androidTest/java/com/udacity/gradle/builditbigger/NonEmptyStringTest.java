@@ -3,7 +3,6 @@ package com.udacity.gradle.builditbigger;
 
 import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.LargeTest;
-import android.widget.ProgressBar;
 
 import junit.framework.Assert;
 
@@ -14,15 +13,14 @@ import org.junit.runner.RunWith;
 @RunWith(AndroidJUnit4.class)
 public class NonEmptyStringTest {
 
-
+    //test the result of AsyncTask is not empty using interface AsyncResponse
     @Test
     public void nonEmptyStringTest() {
-        ProgressBar progressBar=null;
         EndpointsAsyncTask endpointsAsyncTask = (EndpointsAsyncTask) new EndpointsAsyncTask(new AsyncResponse() {
             @Override
             public void processFinish(String output) {
-                Assert.assertTrue(!output.equals(""));
+                Assert.assertFalse(output.isEmpty());
             }
-        },progressBar).execute();
+        }).execute();
     }
 }
