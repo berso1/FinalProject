@@ -9,18 +9,26 @@ import junit.framework.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.util.concurrent.CountDownLatch;
+
 @LargeTest
 @RunWith(AndroidJUnit4.class)
 public class NonEmptyStringTest {
 
-    //test the result of AsyncTask is not empty using interface AsyncResponse
     @Test
-    public void nonEmptyStringTest() {
+    public void  nonEmptyString() {
+        final CountDownLatch signal = new CountDownLatch(1);
         EndpointsAsyncTask endpointsAsyncTask = (EndpointsAsyncTask) new EndpointsAsyncTask(new AsyncResponse() {
             @Override
             public void processFinish(String output) {
                 Assert.assertFalse(output.isEmpty());
+                signal.countDown();
             }
         }).execute();
+        try {
+            signal.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
