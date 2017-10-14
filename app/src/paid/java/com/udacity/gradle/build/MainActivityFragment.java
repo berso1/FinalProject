@@ -35,6 +35,7 @@ public class MainActivityFragment extends Fragment {
 
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
+                //Load Joke from AsyncTask and send in intent to JokeActivity to display it
                 EndpointsAsyncTask endpointsAsyncTask = (EndpointsAsyncTask) new EndpointsAsyncTask(new AsyncResponse() {
                     final Intent intent = new Intent(getActivity(), JokeActivity.class);
 

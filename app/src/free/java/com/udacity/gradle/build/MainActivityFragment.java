@@ -48,6 +48,7 @@ public class MainActivityFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
+                //Display InterstitialAd in free version
                 final InterstitialAd interstitialAd;
                 interstitialAd = new InterstitialAd(getActivity());
                 interstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
@@ -77,11 +78,10 @@ public class MainActivityFragment extends Fragment {
 
     }
 
+    //Load Joke from AsyncTask and send in intent to JokeActivity to display it
     private void loadJoke() {
         EndpointsAsyncTask endpointsAsyncTask = (EndpointsAsyncTask) new EndpointsAsyncTask(new AsyncResponse() {
             final Intent intent = new Intent(getActivity(), JokeActivity.class);
-
-
             @Override
             public void processFinish(String output) {
                 if (output == null) {
