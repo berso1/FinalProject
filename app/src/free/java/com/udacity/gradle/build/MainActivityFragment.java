@@ -44,7 +44,6 @@ public class MainActivityFragment extends Fragment {
                 .build();
         mAdView.loadAd(adRequest);
 
-
         button.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
@@ -75,7 +74,6 @@ public class MainActivityFragment extends Fragment {
 
         });
         return root;
-
     }
 
     //Load Joke from AsyncTask and send in intent to JokeActivity to display it
@@ -92,8 +90,5 @@ public class MainActivityFragment extends Fragment {
                 startActivity(intent);
             }
         }).execute();
-
     }
-
-
 }
